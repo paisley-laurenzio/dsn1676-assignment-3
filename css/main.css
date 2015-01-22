@@ -24,13 +24,15 @@ html {
     background-image: url(../img/stars.svg);
     width: 100%;
     height: 100vh;
-    animation: stars 30s ease infinite;
+    -webkit-animation: stars 10s ease infinite;
+    animation: stars 10s ease infinite;
 }
 
 .asteroid {
     position: absolute;
     top: 100px;
     left: 100px;
+    -webkit-animation: asteroid-spin 7s ease infinite alternate;
     animation: asteroid-spin 7s ease infinite alternate;
 }
 
@@ -38,17 +40,34 @@ html {
     position: absolute;
     right: 200px;
     top: 200px;
+    -webkit-animation: bounce 3s ease infinite;
     animation: bounce 3s ease infinite;
 }
 
 
+@-webkit-keyframes asteroid-spin {
+
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
 
 
 @keyframes asteroid-spin {
 
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
+
+@-webkit-keyframes bounce {
+
+    0% {-webkit-transform: translateY(0) translateX(0);}
+    50% {-webkit-transform: translateY(-50px) translateX(90px);}
+    65% {-webkit-transform: translateY(100px) translateX(-40px);}
+    75% {-webkit-transform: translateY(200px) translateX(0);}
+    80% {-webkit-transform: translateY(50px) translateX(100px);} 
+    100% {-webkit-transform: translateY(-10pv) translateX(0);}
+}
+
 
 @keyframes bounce {
 
@@ -60,10 +79,22 @@ html {
     100% {transform: translateY(-10pv) translateX(0);}
 }
 
+@-webkit-keyframes stars {
+    0% {-webkit-transform: scale(1, 1);}
+    10% {-webkit-transform: scale(1.125, 1.125);}
+    20% {-webkit-transform: scale(1, 1);}
+    40% {-webkit-transform: scale(1.0125, 1.0125);}
+    60% {-webkit-transform: scale(1, 1);}
+    80% {-webkit-transform: scale(1.0125, 1.0125);}
+    100% {-webkit-transform: scale(1, 1);}
+}
+
 @keyframes stars {
     0% {transform: scale(1, 1);}
     10% {transform: scale(1.125, 1.125);}
-    50% {transform: scale(1, 1);}
-    70% {transform: scale(1.0125, 1.0125);}
+    20% {transform: scale(1, 1);}
+    40% {transform: scale(1.0125, 1.0125);}
+    60% {transform: scale(1, 1);}
+    80% {transform: scale(1.0125, 1.0125);}
     100% {transform: scale(1, 1);}
 }
